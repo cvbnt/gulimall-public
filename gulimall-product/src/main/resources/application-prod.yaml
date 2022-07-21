@@ -1,0 +1,38 @@
+Spring:
+  datasource:
+    username: root
+    password: 123456789
+    url: jdbc:mysql://127.0.0.1:3306/gulimall_pms?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gcp:
+      credentials:
+        location: classpath:certain-torus-315206-9a2f62e3a477.json
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  thymeleaf:
+    cache: false
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 123456789
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-value: 1 #代表已删除
+      logic-not-delete-value: 0 #代表没有删除
+      logic-delete-field: show_status #逻辑删除判断字段
+server:
+  port: 8080
+logging:
+  level:
+    com.atguigu.gulimall: debug
+ribbon:
+  ReadTimeout: 30000
+  ConnectTimeout: 30000
